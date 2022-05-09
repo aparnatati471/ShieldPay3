@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="click"
+            type="android.view.View.OnClickListener" />
+
+    </data>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        tools:context=".forgotpassword.VerifyAccountActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/baselayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_greet_msg"
+                style="@style/headingLabel"
+                android:layout_marginTop="@dimen/_100sdp"
+                android:text="@string/verify_account"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_info"
+                style="@style/subTitle"
+                android:layout_marginStart="@dimen/_50sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_50sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_greet_msg" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edt_code_one"
+                style="@style/code"
+                android:imeOptions="actionNext"
+                app:layout_constraintEnd_toStartOf="@id/edt_code_two"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_info" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edt_code_two"
+                style="@style/code"
+                android:imeOptions="actionNext"
+                app:layout_constraintEnd_toStartOf="@id/edt_code_three"
+                app:layout_constraintStart_toEndOf="@id/edt_code_one"
+                app:layout_constraintTop_toBottomOf="@id/tv_info" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edt_code_three"
+                style="@style/code"
+                android:imeOptions="actionNext"
+                app:layout_constraintEnd_toStartOf="@id/edt_code_four"
+                app:layout_constraintStart_toEndOf="@id/edt_code_two"
+                app:layout_constraintTop_toBottomOf="@id/tv_info" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edt_code_four"
+                style="@style/code"
+                android:imeOptions="actionDone"
+                android:maxLines="1"
+                android:singleLine="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/edt_code_three"
+                app:layout_constraintTop_toBottomOf="@id/tv_info" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_verification"
+                style="@style/subTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_40sdp"
+                android:maxLines="2"
+                android:text="@string/haven_t_received_verification_code"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edt_code_four" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_resend_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/resend_code"
+                android:textAlignment="center"
+                android:textColor="@color/dot_selected"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_verification" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_verify_now"
+                style="@style/blueButton"
+                android:layout_marginTop="@dimen/_100sdp"
+                android:layout_marginBottom="@dimen/_40sdp"
+                android:onClick="@{click.onClick}"
+                android:text="@string/verify_now"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_resend_code"
+                app:layout_constraintWidth_percent="0.9" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

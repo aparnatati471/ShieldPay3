@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="click"
+            type="android.view.View.OnClickListener" />
+
+    </data>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".forgotpassword.PhoneActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/baselayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_greet_msg"
+                style="@style/headingLabel"
+                android:layout_marginTop="@dimen/_100sdp"
+                android:text="@string/your_phone_number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_30sdp"
+                android:fontFamily="@font/poppins"
+                android:text="@string/enter_your_mobile_number_to_register_an_account"
+                android:textAlignment="center"
+                android:textColor="@color/forgot_color"
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_greet_msg" />
+
+            <LinearLayout
+                android:id="@+id/tlPhone"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:background="@drawable/custom_edittext"
+                android:clickable="true"
+                android:focusable="true"
+                android:orientation="horizontal"
+                android:padding="@dimen/_5sdp"
+                android:weightSum="1"
+                app:layout_constraintEnd_toEndOf="@id/tv_info"
+                app:layout_constraintHeight_percent="0.08"
+                app:layout_constraintStart_toStartOf="@id/tv_info"
+                app:layout_constraintTop_toBottomOf="@id/tv_info"
+                app:layout_constraintWidth_percent="0.9">
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/customSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.40" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_weight="0.005"
+                    android:background="@color/onboard_description" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_weight="0.70"
+                    android:background="#00000000"
+                    android:imeOptions="actionDone"
+                    android:inputType="phone" />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_send_code"
+                style="@style/blueButton"
+                android:layout_marginTop="@dimen/_170sdp"
+                android:layout_marginBottom="@dimen/_40sdp"
+                android:onClick="@{click.onClick}"
+                android:text="@string/send_code"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tlPhone"
+                app:layout_constraintWidth_percent="0.9" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_signup_email"
+                style="@style/whiteButton"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_30sdp"
+                android:text="@string/sign_up_with_email"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/btn_send_code"
+                app:layout_constraintStart_toStartOf="@id/btn_send_code"
+                app:layout_constraintTop_toBottomOf="@id/btn_send_code"
+                app:layout_constraintWidth_percent="0.9" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

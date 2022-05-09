@@ -25,6 +25,7 @@
     <string name="sign_up">Sign Up</string>
     <string name="with_phone_number">With Phone Number</string>
     <string name="already_have_an_account">Already have an account ?</string>
+    <string name="i_have_agree_to_our_terms_and_condition">I have agree to our Terms and Condition</string>
     <string name="sign_in">Sign In</string>
 
     <!-- Signin Screen Strings-->
@@ -34,5 +35,37 @@
     <string name="name_validation">Required!</string>
     <string name="email_validation">Valid email address required!</string>
     <string name="password_validation">Password too short!</string>
+    <string name="create_password">Create Password</string>
+    <string name="delete"><![CDATA[<-]]></string>
+    <string name="forgot_passwordOne">Forgot Password</string>
+    <string name="forgot_password_info">Enter your registered email below to receive password reset instruction</string>
+    <string name="send_verification_code">Send Verification Code</string>
+    <string name="your_phone_number">Your Phone Number</string>
+    <string name="enter_your_mobile_number_to_register_an_account">Enter your mobile number to register an account</string>
+    <string name="send_code">Send Code</string>
+    <string name="sign_up_with_email">Sign Up With Email</string>
+    <string name="india">India</string>
+    <string name="_91">+91</string>
+    <string name="phone">phone</string>
+
+    <!-- Phone Screen Strings-->
+    <string name="first">+91</string>
+    <string name="second">+92</string>
+    <string name="third">+93</string>
+    <string name="fourth">+94</string>
+    <string name="fifth">+95</string>
+    <string name="sixth">+96</string>
+    <string name="seneventh">+97</string>
+    <string name="verify_account">Verify Account</string>
+    <string name="enter_4_digit_code_we_have_sent">Enter 4 digit code we have sent to </string>
+    <string name="number">+6285788773880</string>
+    <string name="haven_t_received_verification_code">Haven’t received verification code?</string>
+    <string name="resend_code"><u>Resend Code</u></string>
+    <string name="verify_now">Verify Now</string>
+    <string name="account_created">Account Created</string>
+    <string name="account_info">Your account has been created successfully. <br/>Press continue to continue using the app</string>
+    <string name="button_continue">Continue</string>
+    <string name="agree_terms">By clicking continue, you agree to our</string>
+    <string name="terms">Terms and Conditions</string>
 
 </resources>

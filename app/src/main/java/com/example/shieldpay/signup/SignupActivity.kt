@@ -14,8 +14,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.shieldpay.MainActivity
 import com.example.shieldpay.R
 import com.example.shieldpay.databinding.ActivitySignupBinding
+import com.example.shieldpay.forgotpassword.PhoneActivity
 import com.example.shieldpay.onboarding.bold
 import com.example.shieldpay.onboarding.color
+import com.example.shieldpay.onboarding.dismissKeyboard
 import com.example.shieldpay.onboarding.getStringFromRes
 import com.example.shieldpay.onboarding.isValidEmail
 import com.example.shieldpay.onboarding.isValidName
@@ -42,7 +44,9 @@ class SignupActivity : AppCompatActivity(), View.OnClickListener {
         }
         setUpCheckBoxTextStyle()
         setUpTextViewStyle()
-        dismissKeyboard()
+        binding.baselayout.apply {
+            dismissKeyboard(this)
+        }
     }
 
     // Class Method: For Validation
@@ -96,20 +100,11 @@ class SignupActivity : AppCompatActivity(), View.OnClickListener {
         binding.tvAlreadyAccount.movementMethod = LinkMovementMethod.getInstance()
     }
 
-    // Class Method: For dismiss keyboard
-    private fun dismissKeyboard() {
-        binding.baselayout.setOnClickListener {
-            if (currentFocus != null) {
-                val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-                imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
-            }
-        }
-    }
-
     // Overridden Onclick Method
     override fun onClick(p0: View?) {
         when (p0?.id) {
             binding.btnSignup.id -> validation()
+            binding.btnPhone.id -> startActivity(Intent(this, PhoneActivity::class.java))
         }
     }
 

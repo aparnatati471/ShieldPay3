@@ -131,6 +131,7 @@
                 android:id="@+id/tv_forgot_pass"
                 style="@style/label"
                 android:text="@string/forgot_password"
+                android:onClick="@{click.onClick}"
                 android:textAlignment="textEnd"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

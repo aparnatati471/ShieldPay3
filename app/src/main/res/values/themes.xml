@@ -105,4 +105,33 @@
         <item name="android:textColor">@color/dot_selected</item>
     </style>
 
+    <style name="passCodeButton" parent="@style/Widget.AppCompat.Button.Borderless">
+        <item name="android:layout_width">72dp</item>
+        <item name="android:layout_height">72dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="backgroundTint">@color/label_color</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Headline</item>
+    </style>
+
+    <style name="code" parent="Widget.AppCompat.EditText">
+        <item name="android:maxLength">1</item>
+        <item name="android:layout_width">@dimen/_50sdp</item>
+        <item name="android:layout_height">@dimen/_50sdp</item>
+        <item name="android:textColor">@color/dot_selected</item>
+        <item name="android:textSize">@dimen/_30ssp</item>
+        <item name="android:backgroundTint">@color/dot_selected</item>
+        <item name="android:layout_marginTop">@dimen/_20sdp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="subTitle" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/forgot_color</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:layout_marginTop">@dimen/_20sdp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
 </resources>

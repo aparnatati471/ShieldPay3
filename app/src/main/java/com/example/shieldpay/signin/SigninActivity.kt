@@ -8,16 +8,16 @@ import android.text.TextPaint
 import android.text.TextUtils
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
-import android.util.Log
 import android.view.View
 import android.view.WindowManager
-import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import com.example.shieldpay.MainActivity
 import com.example.shieldpay.R
 import com.example.shieldpay.databinding.ActivitySigninBinding
+import com.example.shieldpay.forgotpassword.ForgotPasswordActivity
 import com.example.shieldpay.onboarding.bold
 import com.example.shieldpay.onboarding.color
+import com.example.shieldpay.onboarding.dismissKeyboard
 import com.example.shieldpay.onboarding.getStringFromRes
 import com.example.shieldpay.onboarding.isValidEmail
 import com.example.shieldpay.onboarding.isValidPassword
@@ -45,7 +45,9 @@ class SigninActivity : AppCompatActivity(), View.OnClickListener {
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         )
         setUpTextViewStyle()
-        dismissKeyboard()
+        binding.baselayout.apply {
+            dismissKeyboard(this)
+        }
     }
 
     // Class Method: For Validation
@@ -84,20 +86,16 @@ class SigninActivity : AppCompatActivity(), View.OnClickListener {
         binding.tvDontHaveAccount.movementMethod = LinkMovementMethod.getInstance()
     }
 
-    // Class Method: For dismiss keyboard
-    private fun dismissKeyboard() {
-        binding.baselayout.setOnClickListener {
-            if (currentFocus != null) {
-                val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-                imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
-            }
-        }
-    }
-
     // Overridden Onclick Method
     override fun onClick(p0: View?) {
         when (p0?.id) {
             binding.btnSignin.id -> validation()
+            binding.tvForgotPass.id -> startActivity(
+                Intent(
+                    this,
+                    ForgotPasswordActivity::class.java
+                )
+            )
         }
     }
 

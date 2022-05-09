@@ -10,13 +10,32 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShieldPay">
         <activity
-            android:name=".signin.SigninActivity"
+            android:name=".forgotpassword.AccountCreatedActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ShieldPay.Transparent" />
+        <activity
+            android:name=".forgotpassword.VerifyAccountActivity"
             android:exported="false"
             android:theme="@style/Theme.ShieldPay.Transparent"/>
         <activity
+            android:name=".forgotpassword.PhoneActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ShieldPay.Transparent"/>
+        <activity
+            android:name=".forgotpassword.ForgotPasswordActivity"
+            android:exported="true"
+            android:theme="@style/Theme.ShieldPay.Transparent" />
+        <activity
+            android:name=".createpassword.CreatePasswordActivity"
+            android:exported="true" />
+        <activity
+            android:name=".signin.SigninActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ShieldPay.Transparent" />
+        <activity
             android:name=".signup.SignupActivity"
             android:exported="false"
-            android:theme="@style/Theme.ShieldPay.Splash"/>
+            android:theme="@style/Theme.ShieldPay.Splash" />
         <activity
             android:name=".splash.SplashActivity"
             android:exported="true"

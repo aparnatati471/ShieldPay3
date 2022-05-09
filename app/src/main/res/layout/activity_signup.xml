@@ -127,6 +127,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_phone"
                 style="@style/whiteButton"
+                android:onClick="@{click.onClick}"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:text="@string/with_phone_number"

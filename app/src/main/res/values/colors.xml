@@ -15,5 +15,7 @@
     <color name="label_color">#333333</color>
     <color name="label_header_color">#020614</color>
     <color name="textfield_color">#F7F7F7</color>
+    <color name="forgot_color">#999999</color>
+    <color name="red">#C51717</color>
 
 </resources>

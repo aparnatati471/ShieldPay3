@@ -14,10 +14,15 @@ import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
 import android.text.style.UnderlineSpan
 import android.util.Patterns
+import android.view.View
 import android.view.Window
+import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.getSystemService
 import com.example.shieldpay.R
 
+// Extension for get drawable image
 fun Context.getDrawableRes(@DrawableRes id: Int): Drawable? {
     return ContextCompat.getDrawable(this, id)
 }
@@ -90,4 +95,13 @@ fun String.isValidName() : Boolean = this.isNotEmpty()
 fun String.isValidEmail(): Boolean = this.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(this).matches()
 
 fun String.isValidPassword(): Boolean = this.isNotEmpty() && length >= 8
+
+// Extension for dismiss keyboard
+fun View.dismissKeyboard(view: View) {
+    view.setOnClickListener {
+        val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(windowToken, 0)
+    }
+}
+
 
