@@ -5,14 +5,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shieldpay.databinding.OnboardingScreenBinding
 
-class OnboardingAdapter(private val onboardingData: ArrayList<OnboardingModel>): RecyclerView.Adapter<OnboardingAdapter.ViewHolder>() {
+class OnboardingAdapter(private val onboardingData: ArrayList<OnboardingModel>) :
+    RecyclerView.Adapter<OnboardingAdapter.ViewHolder>() {
 
-    private lateinit var binding: OnboardingScreenBinding
-
-    inner class ViewHolder(val binding: OnboardingScreenBinding): RecyclerView.ViewHolder(binding.root)
+    inner class ViewHolder(val binding: OnboardingScreenBinding) :
+        RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        binding = OnboardingScreenBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            OnboardingScreenBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 

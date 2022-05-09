@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="click"
+            type="android.view.View.OnClickListener" />
+
+    </data>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        tools:context=".signup.SignupActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/baselayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_greet_msg"
+                style="@style/headingLabel"
+                android:layout_marginTop="@dimen/_100sdp"
+                android:text="@string/welcome"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_fullname"
+                style="@style/label"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:text="@string/full_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_greet_msg" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edt_fullname"
+                style="@style/editTextInputLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_fullname">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_name"
+                    style="@style/editText"
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_email"
+                style="@style/label"
+                android:text="@string/email_address"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edt_fullname" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edt_email"
+                style="@style/editTextInputLayout"
+                app:layout_constraintEnd_toEndOf="@id/edt_fullname"
+                app:layout_constraintStart_toStartOf="@id/edt_fullname"
+                app:layout_constraintTop_toBottomOf="@id/tv_email">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtEmailAddress"
+                    style="@style/editText"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_password"
+                style="@style/label"
+                android:text="@string/password"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edt_email" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edt_password"
+                style="@style/editTextInputLayout"
+                app:endIconMode="password_toggle"
+                app:layout_constraintEnd_toEndOf="@id/edt_email"
+                app:layout_constraintStart_toStartOf="@id/edt_email"
+                app:layout_constraintTop_toBottomOf="@id/tv_password">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_pass"
+                    style="@style/editText"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/chk_terms_and_conditions"
+                style="@style/checkbox"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/agree"
+                app:layout_constraintStart_toStartOf="@id/edt_password"
+                app:layout_constraintTop_toBottomOf="@id/edt_password" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_signup"
+                style="@style/blueButton"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:text="@string/sign_up"
+                android:onClick="@{click.onClick}"
+                app:layout_constraintEnd_toEndOf="@id/edt_password"
+                app:layout_constraintStart_toStartOf="@id/edt_password"
+                app:layout_constraintTop_toBottomOf="@+id/chk_terms_and_conditions"
+                app:layout_constraintWidth_percent="0.9" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_phone"
+                style="@style/whiteButton"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:text="@string/with_phone_number"
+                app:layout_constraintEnd_toEndOf="@id/btn_signup"
+                app:layout_constraintStart_toStartOf="@id/btn_signup"
+                app:layout_constraintTop_toBottomOf="@id/btn_signup"
+                app:layout_constraintWidth_percent="0.9" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_already_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/dot_selected"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_phone" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

@@ -3,18 +3,20 @@ package com.example.shieldpay.onboarding
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.shieldpay.Data
-import com.example.shieldpay.MainActivity
 import com.example.shieldpay.R
 import com.example.shieldpay.databinding.ActivityOnboardingBinding
+import com.example.shieldpay.signin.SigninActivity
+import com.example.shieldpay.signup.SignupActivity
 
 class OnBoardingActivity : AppCompatActivity(), View.OnClickListener {
 
-    // Variable Declarations And Initialization
+    // Variables
     private lateinit var binding: ActivityOnboardingBinding
     private var dotsCount = 0
     private lateinit var dots: Array<AppCompatImageView?>
@@ -85,8 +87,15 @@ class OnBoardingActivity : AppCompatActivity(), View.OnClickListener {
     // Overridden Onclick Method
     override fun onClick(p0: View?) {
         when (p0?.id) {
-            binding.btnNext.id -> binding.vpOnboarding.setCurrentItem(navigateToNext(), true)
-            binding.btnSkip.id -> startActivity(Intent(this, MainActivity::class.java))
+            binding.btnNext.id -> {
+                if (binding.btnNext.text == "Next Step") {
+                    binding.vpOnboarding.setCurrentItem(navigateToNext(), true)
+                } else {
+                    startActivity(Intent(this@OnBoardingActivity, SignupActivity::class.java))
+                }
+            }
+            binding.tvSkip.id -> startActivity(Intent(this, SigninActivity::class.java))
+            binding.btnSkip.id -> startActivity(Intent(this, SigninActivity::class.java))
         }
     }
 

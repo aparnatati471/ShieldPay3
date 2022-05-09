@@ -15,4 +15,24 @@
     <string name="login_now">Login Now</string>
     <string name="shieldpay">SHIELDPAY</string>
 
+    <!-- Signup Screen Strings-->
+    <string name="welcome">Welcome !</string>
+    <string name="full_name">Full Name</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="agree">I have agree to our</string>
+    <string name="terms_and_condition">Terms and Condition</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="with_phone_number">With Phone Number</string>
+    <string name="already_have_an_account">Already have an account ?</string>
+    <string name="sign_in">Sign In</string>
+
+    <!-- Signin Screen Strings-->
+    <string name="welcomeback">Welcome Back!</string>
+    <string name="dont_have_an_account">Don’t have an account ?</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="name_validation">Required!</string>
+    <string name="email_validation">Valid email address required!</string>
+    <string name="password_validation">Password too short!</string>
+
 </resources>
