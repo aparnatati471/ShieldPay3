@@ -10,10 +10,14 @@ import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isInvisible
+import androidx.lifecycle.ViewModelProvider
 import com.example.shieldpay.MainActivity
 import com.example.shieldpay.R
 import com.example.shieldpay.databinding.ActivitySignupBinding
+import com.example.shieldpay.onboarding.getColorDrawable
 import com.example.shieldpay.forgotpassword.PhoneActivity
 import com.example.shieldpay.onboarding.bold
 import com.example.shieldpay.onboarding.color
@@ -26,17 +30,22 @@ import com.example.shieldpay.onboarding.setStatusBarColorWhite
 import com.example.shieldpay.onboarding.underline
 import com.example.shieldpay.onboarding.validate
 import com.example.shieldpay.signin.SigninActivity
+import com.example.shieldpay.webservices.http.AuthenticationViewModel
+import org.json.JSONObject
 
 class SignupActivity : AppCompatActivity(), View.OnClickListener {
 
     // Variables
     private lateinit var binding: ActivitySignupBinding
+    private lateinit var vm: AuthenticationViewModel
     private var check = true
 
     // Overridden Method
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignupBinding.inflate(layoutInflater)
+        vm = ViewModelProvider(this)[AuthenticationViewModel::class.java]
+        binding.click = this
         setContentView(binding.root)
         binding.click = this
         window.apply {
@@ -46,6 +55,24 @@ class SignupActivity : AppCompatActivity(), View.OnClickListener {
         setUpTextViewStyle()
         binding.baselayout.apply {
             dismissKeyboard(this)
+        }
+        observables()
+    }
+
+    private fun observables() {
+        vm.registerResult.observe(this) {
+            Toast.makeText(this, it.token, Toast.LENGTH_LONG).show()
+            startActivity(Intent(this, SigninActivity::class.java))
+        }
+        vm.failureResult.observe(this) {
+            Toast.makeText(this, it, Toast.LENGTH_LONG).show()
+        }
+        vm.isLoading.observe(this) {
+            if(it) {
+                binding.progressCircular.visibility = View.VISIBLE
+            } else {
+                binding.progressCircular.visibility = View.INVISIBLE
+            }
         }
     }
 
@@ -68,7 +95,8 @@ class SignupActivity : AppCompatActivity(), View.OnClickListener {
         }
         val secondString = SpannableString(getStringFromRes(R.string.terms_and_condition)).apply {
             color("#000000", 0, this.length)
-            underline(0, this.length)
+            underline(0, this.length
+        )
         }
         binding.chkTermsAndConditions.text =
             SpannableString(TextUtils.concat(firstString, " ", secondString))
@@ -100,11 +128,11 @@ class SignupActivity : AppCompatActivity(), View.OnClickListener {
         binding.tvAlreadyAccount.movementMethod = LinkMovementMethod.getInstance()
     }
 
-    // Overridden Onclick Method
     override fun onClick(p0: View?) {
         when (p0?.id) {
-            binding.btnSignup.id -> validation()
-            binding.btnPhone.id -> startActivity(Intent(this, PhoneActivity::class.java))
+            binding.btnSignup.id -> {
+                vm.httpRegisterVM(binding.edtEmailAddress.text.toString(), binding.edtPass.text.toString())
+            }
         }
     }
 

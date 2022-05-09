@@ -10,10 +10,11 @@ import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.view.View
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.example.shieldpay.R
 import com.example.shieldpay.databinding.ActivitySigninBinding
-import com.example.shieldpay.forgotpassword.ForgotPasswordActivity
 import com.example.shieldpay.home.BottomNavigationActivity
 import com.example.shieldpay.onboarding.bold
 import com.example.shieldpay.onboarding.color
@@ -24,17 +25,22 @@ import com.example.shieldpay.onboarding.isValidPassword
 import com.example.shieldpay.onboarding.setStatusBarColorBlue
 import com.example.shieldpay.onboarding.validate
 import com.example.shieldpay.signup.SignupActivity
+import com.example.shieldpay.webservices.http.AuthenticationViewModel
+import org.json.JSONObject
 
 class SigninActivity : AppCompatActivity(), View.OnClickListener {
 
     // Variables
     private lateinit var binding: ActivitySigninBinding
+    private lateinit var vm: AuthenticationViewModel
     private var check = true
 
     // Overridden Method
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySigninBinding.inflate(layoutInflater)
+        vm = ViewModelProvider(this)[AuthenticationViewModel::class.java]
+        binding.click = this
         setContentView(binding.root)
         binding.click = this
         val window = window.apply {
@@ -47,6 +53,24 @@ class SigninActivity : AppCompatActivity(), View.OnClickListener {
         setUpTextViewStyle()
         binding.baselayout.apply {
             dismissKeyboard(this)
+        }
+        observables()
+    }
+
+    private fun observables() {
+        vm.loginResult.observe(this) {
+            Toast.makeText(this, it.token, Toast.LENGTH_LONG).show()
+            startActivity(Intent(this, BottomNavigationActivity::class.java))
+        }
+        vm.failureResult.observe(this) {
+            Toast.makeText(this, it, Toast.LENGTH_LONG).show()
+        }
+        vm.isLoading.observe(this) {
+            if(it) {
+                binding.progressCircular.visibility = View.VISIBLE
+            } else {
+                binding.progressCircular.visibility = View.INVISIBLE
+            }
         }
     }
 
@@ -86,16 +110,11 @@ class SigninActivity : AppCompatActivity(), View.OnClickListener {
         binding.tvDontHaveAccount.movementMethod = LinkMovementMethod.getInstance()
     }
 
-    // Overridden Onclick Method
     override fun onClick(p0: View?) {
         when (p0?.id) {
-            binding.btnSignin.id -> validation()
-            binding.tvForgotPass.id -> startActivity(
-                Intent(
-                    this,
-                    ForgotPasswordActivity::class.java
-                )
-            )
+            binding.btnSignin.id -> {
+                vm.httpLoginVM(binding.edtEmailAddress.text.toString(), binding.edtPass.text.toString())
+            }
         }
     }
 

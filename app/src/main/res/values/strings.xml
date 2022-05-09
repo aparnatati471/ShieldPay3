@@ -105,5 +105,8 @@
     <string name="unread">Unread</string>
     <string name="cards">Your Cards</string>
     <string name="add_credit_card">Add Credit Card</string>
+    <string name="eve_holt_reqres_in">eve.holt@reqres.in</string>
+    <string name="pistol">pistol</string>
+    <string name="cityslicka">cityslicka</string>
 
 </resources>

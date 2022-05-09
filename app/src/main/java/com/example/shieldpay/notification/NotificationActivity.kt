@@ -7,7 +7,6 @@ import com.example.shieldpay.Data
 import com.example.shieldpay.R
 import com.example.shieldpay.databinding.ActivityNotificationBinding
 import com.example.shieldpay.home.BottomNavigationActivity
-import com.example.shieldpay.onboarding.getColorDrawable
 import com.example.shieldpay.onboarding.setStatusBarColorWhite
 import com.google.android.material.tabs.TabLayoutMediator
 
