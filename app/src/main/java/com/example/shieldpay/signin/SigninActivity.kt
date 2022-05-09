@@ -11,7 +11,6 @@ import android.text.style.ClickableSpan
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import com.example.shieldpay.MainActivity
 import com.example.shieldpay.R
 import com.example.shieldpay.databinding.ActivitySigninBinding
 import com.example.shieldpay.forgotpassword.ForgotPasswordActivity

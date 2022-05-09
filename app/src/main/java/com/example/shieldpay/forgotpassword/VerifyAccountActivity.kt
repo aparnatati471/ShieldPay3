@@ -1,7 +1,6 @@
 package com.example.shieldpay.forgotpassword
 
 import android.content.Intent
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.SpannableString
@@ -19,10 +18,8 @@ import com.example.shieldpay.onboarding.setStatusBarColorWhite
 
 class VerifyAccountActivity : AppCompatActivity(), View.OnClickListener {
 
-    // Variables
     private lateinit var binding: ActivityVerifyAccountBinding
 
-    // Overridden Method
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityVerifyAccountBinding.inflate(layoutInflater)

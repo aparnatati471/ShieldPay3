@@ -4,6 +4,11 @@ import android.content.Context
 import com.example.shieldpay.forgotpassword.CountryModel
 import com.example.shieldpay.home.CardModel
 import com.example.shieldpay.home.HomeFragment
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatTextView
+import com.example.shieldpay.notification.AllNoticationFragment
+import com.example.shieldpay.notification.NotificationModel
+import com.example.shieldpay.notification.UnreadNotificationFragment
 import com.example.shieldpay.onboarding.OnboardingModel
 
 class Data {
@@ -70,6 +75,46 @@ class Data {
             cardList.add(CardModel(context.getString(R.string.card_three_no), context.getString(R.string.card_three_amount), context.getString(R.string.card_three_date)))
             cardList.add(CardModel(context.getString(R.string.card_one_no), context.getString(R.string.card_one_amount), context.getString(R.string.card_one_date)))
             return cardList
+        }
+
+        fun unreadNotificationData(context: UnreadNotificationFragment): ArrayList<NotificationModel> {
+            val notificationList = ArrayList<NotificationModel>()
+            notificationList.add(NotificationModel(R.drawable.dot, R.drawable.send, context.getString(R.string.you_have_received_money_from_dodi_taison_32_00), context.getString(R.string._11_00_am)))
+            notificationList.add(NotificationModel(R.drawable.dot, R.drawable.pay, context.getString(R.string.you_have_received_money_from_dodi_taison_32_00), context.getString(R.string._11_00_am)))
+            notificationList.add(NotificationModel(R.drawable.dot, R.drawable.request, context.getString(R.string.you_have_received_money_from_dodi_taison_32_00), context.getString(R.string._11_00_am)))
+            notificationList.add(NotificationModel(R.drawable.dot, R.drawable.topup, context.getString(R.string.you_have_received_money_from_dodi_taison_32_00), context.getString(R.string._11_00_am)))
+            notificationList.add(NotificationModel(R.drawable.dot, R.drawable.send, context.getString(R.string.you_have_received_money_from_dodi_taison_32_00), context.getString(R.string._11_00_am)))
+            notificationList.add(NotificationModel(R.drawable.dot, R.drawable.pay, context.getString(R.string.you_have_received_money_from_dodi_taison_32_00), context.getString(R.string._11_00_am)))
+            notificationList.add(NotificationModel(R.drawable.dot, R.drawable.request, context.getString(R.string.you_have_received_money_from_dodi_taison_32_00), context.getString(R.string._11_00_am)))
+            notificationList.add(NotificationModel(R.drawable.dot, R.drawable.topup, context.getString(R.string.you_have_received_money_from_dodi_taison_32_00), context.getString(R.string._11_00_am)))
+            notificationList.add(NotificationModel(R.drawable.dot, R.drawable.send, context.getString(R.string.you_have_received_money_from_dodi_taison_32_00), context.getString(R.string._11_00_am)))
+            return notificationList
+        }
+
+        fun allNotificationData(context: AllNoticationFragment): ArrayList<NotificationModel> {
+            val notificationList = ArrayList<NotificationModel>()
+            notificationList.add(NotificationModel(R.drawable.dot, R.drawable.send, context.getString(R.string.you_have_received_money_from_dodi_taison_32_00), context.getString(R.string._11_00_am)))
+            notificationList.add(NotificationModel(R.drawable.dot, R.drawable.pay, context.getString(R.string.you_have_received_money_from_dodi_taison_32_00), context.getString(R.string._11_00_am)))
+            notificationList.add(NotificationModel(null, R.drawable.request, context.getString(R.string.you_have_received_money_from_dodi_taison_32_00), context.getString(R.string._11_00_am)))
+            notificationList.add(NotificationModel(R.drawable.dot, R.drawable.topup, context.getString(R.string.you_have_received_money_from_dodi_taison_32_00), context.getString(R.string._11_00_am)))
+            notificationList.add(NotificationModel(R.drawable.dot, R.drawable.send, context.getString(R.string.you_have_received_money_from_dodi_taison_32_00), context.getString(R.string._11_00_am)))
+            notificationList.add(NotificationModel(null, R.drawable.pay, context.getString(R.string.you_have_received_money_from_dodi_taison_32_00), context.getString(R.string._11_00_am)))
+            notificationList.add(NotificationModel(R.drawable.dot, R.drawable.request, context.getString(R.string.you_have_received_money_from_dodi_taison_32_00), context.getString(R.string._11_00_am)))
+            notificationList.add(NotificationModel(null, R.drawable.topup, context.getString(R.string.you_have_received_money_from_dodi_taison_32_00), context.getString(R.string._11_00_am)))
+            notificationList.add(NotificationModel(R.drawable.dot, R.drawable.send, context.getString(R.string.you_have_received_money_from_dodi_taison_32_00), context.getString(R.string._11_00_am)))
+            return notificationList
+        }
+
+        fun setToolBar(
+            activity: AppCompatActivity,
+            toolbarTitle: AppCompatTextView,
+            toolBar: androidx.appcompat.widget.Toolbar,
+            title: String
+        ) {
+            activity.setSupportActionBar(toolBar)
+            toolBar.setNavigationIcon(R.drawable.back_arrow)
+            toolbarTitle.text = title
+            activity.supportActionBar?.setDisplayShowTitleEnabled(false)
         }
 
     }

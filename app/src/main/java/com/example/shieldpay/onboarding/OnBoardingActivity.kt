@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.shieldpay.Data
+import com.example.shieldpay.MainActivity
 import com.example.shieldpay.R
 import com.example.shieldpay.databinding.ActivityOnboardingBinding
 import com.example.shieldpay.signin.SigninActivity
