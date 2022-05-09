@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.shieldpay.Data
+import com.example.shieldpay.card.CardActivity
 import com.example.shieldpay.databinding.FragmentHomeBinding
 import com.example.shieldpay.notification.NotificationActivity
 
@@ -24,12 +25,14 @@ class HomeFragment : Fragment() {
         binding.imgNotification.setOnClickListener {
             startActivity(Intent(context, NotificationActivity::class.java))
         }
+        binding.tvViewAll.setOnClickListener {
+            startActivity(Intent(context, CardActivity::class.java))
+        }
         return binding.root
     }
 
     private fun setUpCardDetails() {
-        val cardRecyclerView = binding.cards
-        cardRecyclerView.adapter = CardAdapter(Data.cardData(this))
+        binding.cards.adapter = CardAdapter(Data.cardData(this))
     }
 
 }

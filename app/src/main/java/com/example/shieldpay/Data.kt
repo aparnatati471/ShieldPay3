@@ -77,6 +77,13 @@ class Data {
             return cardList
         }
 
+        fun cardDataTwo(context: Context): ArrayList<CardModel> {
+            val cardList = ArrayList<CardModel>()
+            cardList.add(CardModel(context.getString(R.string.card_one_no), context.getString(R.string.card_one_amount), context.getString(R.string.card_one_date)))
+            cardList.add(CardModel(context.getString(R.string.card_two_no), context.getString(R.string.card_two_amount), context.getString(R.string.card_two_date)))
+            return cardList
+        }
+
         fun unreadNotificationData(context: UnreadNotificationFragment): ArrayList<NotificationModel> {
             val notificationList = ArrayList<NotificationModel>()
             notificationList.add(NotificationModel(R.drawable.dot, R.drawable.send, context.getString(R.string.you_have_received_money_from_dodi_taison_32_00), context.getString(R.string._11_00_am)))
