@@ -15,6 +15,7 @@ import com.example.shieldpay.MainActivity
 import com.example.shieldpay.R
 import com.example.shieldpay.databinding.ActivitySigninBinding
 import com.example.shieldpay.forgotpassword.ForgotPasswordActivity
+import com.example.shieldpay.home.BottomNavigationActivity
 import com.example.shieldpay.onboarding.bold
 import com.example.shieldpay.onboarding.color
 import com.example.shieldpay.onboarding.dismissKeyboard
@@ -56,7 +57,7 @@ class SigninActivity : AppCompatActivity(), View.OnClickListener {
             binding.edtEmailAddress.validate(getString(R.string.email_validation)) { s -> s.isValidEmail() }
             binding.edtPass.validate(getString(R.string.password_validation)) { s -> s.isValidPassword() }
         } else {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, BottomNavigationActivity::class.java))
         }
         check = false
     }

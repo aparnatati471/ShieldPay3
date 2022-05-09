@@ -87,13 +87,13 @@ class OnBoardingActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(p0: View?) {
         when (p0?.id) {
             binding.btnNext.id -> {
-                if (binding.btnNext.text == "Next Step") {
+                if (binding.btnNext.text == getStringFromRes(R.string.next_step)) {
                     binding.vpOnboarding.setCurrentItem(navigateToNext(), true)
                 } else {
                     startActivity(Intent(this@OnBoardingActivity, SignupActivity::class.java))
                 }
             }
-            binding.tvSkip.id -> startActivity(Intent(this, SigninActivity::class.java))
+            binding.tvSkip.id -> startActivity(Intent(this, SignupActivity::class.java))
             binding.btnSkip.id -> startActivity(Intent(this, SigninActivity::class.java))
         }
     }

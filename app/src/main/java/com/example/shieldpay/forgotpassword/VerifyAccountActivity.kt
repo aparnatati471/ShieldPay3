@@ -10,12 +10,10 @@ import android.view.View
 import android.widget.EditText
 import androidx.core.widget.doOnTextChanged
 import com.example.shieldpay.R
-
 import com.example.shieldpay.databinding.ActivityVerifyAccountBinding
 import com.example.shieldpay.onboarding.bold
 import com.example.shieldpay.onboarding.color
 import com.example.shieldpay.onboarding.dismissKeyboard
-import com.example.shieldpay.onboarding.getColorDrawable
 import com.example.shieldpay.onboarding.getStringFromRes
 import com.example.shieldpay.onboarding.setStatusBarColorWhite
 

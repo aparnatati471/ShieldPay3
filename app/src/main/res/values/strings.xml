@@ -63,9 +63,39 @@
     <string name="resend_code"><u>Resend Code</u></string>
     <string name="verify_now">Verify Now</string>
     <string name="account_created">Account Created</string>
-    <string name="account_info">Your account has been created successfully. <br/>Press continue to continue using the app</string>
+    <string name="account_info">Your account has been created successfully. <br />Press continue to continue using the app</string>
     <string name="button_continue">Continue</string>
     <string name="agree_terms">By clicking continue, you agree to our</string>
     <string name="terms">Terms and Conditions</string>
+
+    <!-- Home Screen Strings-->
+    <string name="my_balance">My Balance</string>
+    <string name="_2887_65">$2887.65</string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="alexander_michael">Alexander Michael</string>
+    <string name="send">Send</string>
+    <string name="top_up">Top up</string>
+    <string name="pay">Pay</string>
+    <string name="your_cards">Your Cards</string>
+    <string name="view_all">View All</string>
+    <string name="payment_card">Payment Card</string>
+    <string name="card_one_no">2298 1268 3398 9874</string>
+    <string name="card_one_amount">$2885.00</string>
+    <string name="card_one_date">12/24</string>
+    <string name="card_two_no">3498 1268 3398 9874</string>
+    <string name="card_two_amount">$5885.00</string>
+    <string name="card_two_date">18/24</string>
+    <string name="card_three_no">2298 1268 3398 9874</string>
+    <string name="card_three_amount">$5885.00</string>
+    <string name="card_three_date">06/24</string>
+    <string name="your_saving">Your Saving</string>
+    <string name="buy_playstation">Buy Playstation</string>
+    <string name="slim_1_tb_56_games">Slim 1 TB 56 Games</string>
+    <string name="home">Home</string>
+    <string name="history">History</string>
+    <string name="statistic">Statistic</string>
+    <string name="profile">Profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

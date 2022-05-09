@@ -2,6 +2,8 @@ package com.example.shieldpay
 
 import android.content.Context
 import com.example.shieldpay.forgotpassword.CountryModel
+import com.example.shieldpay.home.CardModel
+import com.example.shieldpay.home.HomeFragment
 import com.example.shieldpay.onboarding.OnboardingModel
 
 class Data {
@@ -59,6 +61,15 @@ class Data {
                 context.getString(R.string.seneventh)
             ))
             return countryList
+        }
+
+        fun cardData(context: HomeFragment): ArrayList<CardModel> {
+            val cardList = ArrayList<CardModel>()
+            cardList.add(CardModel(context.getString(R.string.card_one_no), context.getString(R.string.card_one_amount), context.getString(R.string.card_one_date)))
+            cardList.add(CardModel(context.getString(R.string.card_two_no), context.getString(R.string.card_two_amount), context.getString(R.string.card_two_date)))
+            cardList.add(CardModel(context.getString(R.string.card_three_no), context.getString(R.string.card_three_amount), context.getString(R.string.card_three_date)))
+            cardList.add(CardModel(context.getString(R.string.card_one_no), context.getString(R.string.card_one_amount), context.getString(R.string.card_one_date)))
+            return cardList
         }
 
     }

@@ -13,6 +13,7 @@
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        style="@style/scrollview"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -155,6 +156,7 @@
                 android:layout_marginTop="@dimen/_30sdp"
                 android:layout_marginBottom="@dimen/_20sdp"
                 android:fontFamily="@font/poppins"
+                android:textColor="@color/dot_selected"
                 android:textSize="@dimen/_12ssp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

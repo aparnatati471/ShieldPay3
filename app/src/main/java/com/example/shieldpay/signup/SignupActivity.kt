@@ -56,7 +56,7 @@ class SignupActivity : AppCompatActivity(), View.OnClickListener {
             binding.edtEmailAddress.validate(getString(R.string.email_validation)) { s -> s.isValidEmail() }
             binding.edtPass.validate(getString(R.string.password_validation)) { s -> s.isValidPassword() }
         } else {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, SigninActivity::class.java))
         }
         check = false
     }

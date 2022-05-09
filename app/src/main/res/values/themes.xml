@@ -134,4 +134,9 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+    <style name="scrollview" parent="android:Widget.ScrollView">
+        <item name="android:overScrollMode">never</item>
+        <item name="android:scrollbars">none</item>
+    </style>
+
 </resources>
