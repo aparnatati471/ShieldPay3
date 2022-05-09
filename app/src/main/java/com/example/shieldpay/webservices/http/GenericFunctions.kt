@@ -1,11 +1,15 @@
 package com.example.shieldpay.webservices.http
 
 import android.util.Log
+import com.example.shieldpay.webservices.retrofit.APIServices
 import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.json.JSONObject
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.io.OutputStreamWriter
@@ -103,6 +107,57 @@ class GenericFunctions {
                 LoginUserResponse::class.java
             )
         }
+
+        private fun <T> requestWithRetrofit(call: Call<T>, result: Callbacks<T, Error>) {
+            call.enqueue(object : Callback<T> {
+                override fun onResponse(call: Call<T>, response: Response<T>) {
+                    if(response.isSuccessful) {
+                        when (response.code()) {
+                            SUCCESS_RESPONSE_CODE -> {
+                                response.body()?.let {
+                                    result.onSuccess(it)
+                                }
+                            }
+                            FAILURE_RESPONSE_CODE -> {
+                                response.errorBody()?.let {
+                                    result.onFailure(
+                                        Gson().fromJson(
+                                            it.charStream().readText(),
+                                            Error::class.java
+                                        )
+                                    )
+                                }
+                            }
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<T>, t: Throwable) {
+                    result.onFailure(t.message.toString())
+                }
+            })
+        }
+
+        fun retrofitRegister(
+            data: AuthenticationUserRequest,
+            callbacks: Callbacks<RegisterUserResponse, Error>
+        ) {
+            requestWithRetrofit(
+                APIServices.retrofitBuilder.register(data),
+                callbacks
+            )
+        }
+
+        fun retrofitLogin(
+            data: AuthenticationUserRequest,
+            callbacks: Callbacks<LoginUserResponse, Error>
+        ) {
+            requestWithRetrofit(
+                APIServices.retrofitBuilder.login(data),
+                callbacks
+            )
+        }
+
     }
 
 }

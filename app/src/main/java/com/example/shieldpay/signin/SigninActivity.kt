@@ -8,6 +8,7 @@ import android.text.TextPaint
 import android.text.TextUtils
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
@@ -25,8 +26,8 @@ import com.example.shieldpay.onboarding.isValidPassword
 import com.example.shieldpay.onboarding.setStatusBarColorBlue
 import com.example.shieldpay.onboarding.validate
 import com.example.shieldpay.signup.SignupActivity
+import com.example.shieldpay.webservices.http.APISelectionType
 import com.example.shieldpay.webservices.http.AuthenticationViewModel
-import org.json.JSONObject
 
 class SigninActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -113,7 +114,17 @@ class SigninActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(p0: View?) {
         when (p0?.id) {
             binding.btnSignin.id -> {
-                vm.httpLoginVM(binding.edtEmailAddress.text.toString(), binding.edtPass.text.toString())
+                validation()
+                when(APISelectionType.SelectAPI.apiType) {
+                    getString(R.string.retrofit) -> {
+                        Log.d("Success", getString(R.string.retrofit))
+                        vm.retrofitLoginVM(binding.edtEmailAddress.text.toString(), binding.edtPass.text.toString())
+                    }
+                    getString(R.string.http) -> {
+                        Log.d("Success", getString(R.string.http))
+                        vm.httpLoginVM(binding.edtEmailAddress.text.toString(), binding.edtPass.text.toString())
+                    }
+                }
             }
         }
     }

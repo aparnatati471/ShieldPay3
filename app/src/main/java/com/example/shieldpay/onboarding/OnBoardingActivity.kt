@@ -13,6 +13,7 @@ import com.example.shieldpay.R
 import com.example.shieldpay.databinding.ActivityOnboardingBinding
 import com.example.shieldpay.signin.SigninActivity
 import com.example.shieldpay.signup.SignupActivity
+import com.example.shieldpay.webservices.RetrofitOrHttpActivity
 
 class OnBoardingActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -84,18 +85,17 @@ class OnBoardingActivity : AppCompatActivity(), View.OnClickListener {
         return binding.vpOnboarding.currentItem + 1
     }
 
-    // Overridden Onclick Method
     override fun onClick(p0: View?) {
         when (p0?.id) {
             binding.btnNext.id -> {
-                if (binding.btnNext.text == getStringFromRes(R.string.next_step)) {
+                if (binding.btnNext.text == "Next Step") {
                     binding.vpOnboarding.setCurrentItem(navigateToNext(), true)
                 } else {
-                    startActivity(Intent(this@OnBoardingActivity, SignupActivity::class.java))
+                    startActivity(Intent(this@OnBoardingActivity, RetrofitOrHttpActivity::class.java))
                 }
             }
-            binding.tvSkip.id -> startActivity(Intent(this, SignupActivity::class.java))
-            binding.btnSkip.id -> startActivity(Intent(this, SigninActivity::class.java))
+            binding.tvSkip.id -> startActivity(Intent(this, RetrofitOrHttpActivity::class.java))
+            binding.btnSkip.id -> startActivity(Intent(this, RetrofitOrHttpActivity::class.java))
         }
     }
 

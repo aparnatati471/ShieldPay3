@@ -8,17 +8,13 @@ import android.text.TextPaint
 import android.text.TextUtils
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
+import android.util.Log
 import android.view.View
-import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isInvisible
 import androidx.lifecycle.ViewModelProvider
-import com.example.shieldpay.MainActivity
 import com.example.shieldpay.R
 import com.example.shieldpay.databinding.ActivitySignupBinding
-import com.example.shieldpay.onboarding.getColorDrawable
-import com.example.shieldpay.forgotpassword.PhoneActivity
 import com.example.shieldpay.onboarding.bold
 import com.example.shieldpay.onboarding.color
 import com.example.shieldpay.onboarding.dismissKeyboard
@@ -30,8 +26,8 @@ import com.example.shieldpay.onboarding.setStatusBarColorWhite
 import com.example.shieldpay.onboarding.underline
 import com.example.shieldpay.onboarding.validate
 import com.example.shieldpay.signin.SigninActivity
+import com.example.shieldpay.webservices.http.APISelectionType
 import com.example.shieldpay.webservices.http.AuthenticationViewModel
-import org.json.JSONObject
 
 class SignupActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -95,8 +91,7 @@ class SignupActivity : AppCompatActivity(), View.OnClickListener {
         }
         val secondString = SpannableString(getStringFromRes(R.string.terms_and_condition)).apply {
             color("#000000", 0, this.length)
-            underline(0, this.length
-        )
+            underline(0, this.length)
         }
         binding.chkTermsAndConditions.text =
             SpannableString(TextUtils.concat(firstString, " ", secondString))
@@ -131,7 +126,16 @@ class SignupActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(p0: View?) {
         when (p0?.id) {
             binding.btnSignup.id -> {
-                vm.httpRegisterVM(binding.edtEmailAddress.text.toString(), binding.edtPass.text.toString())
+                when(APISelectionType.SelectAPI.apiType) {
+                    getString(R.string.retrofit) -> {
+                        Log.d("Success", getString(R.string.retrofit))
+                        vm.retrofitRegisterVM(binding.edtEmailAddress.text.toString(), binding.edtPass.text.toString())
+                    }
+                    getString(R.string.http) -> {
+                        Log.d("Success", getString(R.string.http))
+                        vm.httpRegisterVM(binding.edtEmailAddress.text.toString(), binding.edtPass.text.toString())
+                    }
+                }
             }
         }
     }

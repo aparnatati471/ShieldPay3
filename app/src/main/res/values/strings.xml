@@ -108,5 +108,8 @@
     <string name="eve_holt_reqres_in">eve.holt@reqres.in</string>
     <string name="pistol">pistol</string>
     <string name="cityslicka">cityslicka</string>
+    <string name="http_url_connection">HTTP URL Connection</string>
+    <string name="retrofit">Retrofit</string>
+    <string name="http">HTTP</string>
 
 </resources>

@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShieldPay">
         <activity
+            android:name=".webservices.RetrofitOrHttpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".createpassword.CreatePasswordActivity"
+            android:exported="true"/>
+        <activity
             android:name=".card.CardActivity"
             android:exported="false"
             android:theme="@style/Theme.ShieldPay.Transparent" />
@@ -40,9 +46,6 @@
             android:exported="true"
             android:theme="@style/Theme.ShieldPay.Transparent" />
         <activity
-            android:name=".createpassword.CreatePasswordActivity"
-            android:exported="true" />
-        <activity
             android:name=".home.BottomNavigationActivity"
             android:exported="false" />
         <activity
@@ -52,7 +55,8 @@
         <activity
             android:name=".signup.SignupActivity"
             android:exported="true"
-            android:theme="@style/Theme.ShieldPay.Splash" >
+            android:theme="@style/Theme.ShieldPay.Splash">
+
         </activity>
         <activity
             android:name=".splash.SplashActivity"

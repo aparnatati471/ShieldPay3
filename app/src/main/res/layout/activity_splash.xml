@@ -12,22 +12,22 @@
         android:layout_width="@dimen/_121sdp"
         android:layout_height="@dimen/_121sdp"
         android:src="@drawable/logo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_app_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:fontFamily="@font/poppins_bold"
         android:text="@string/shieldpay"
+        android:layout_marginTop="0dp"
         android:textColor="@color/white"
+        android:fontFamily="@font/poppins_bold"
         android:textSize="@dimen/_30ssp"
-        app:layout_constraintEnd_toEndOf="@id/img_logo"
         app:layout_constraintStart_toStartOf="@id/img_logo"
-        app:layout_constraintTop_toBottomOf="@id/img_logo" />
+        app:layout_constraintEnd_toEndOf="@id/img_logo"
+        app:layout_constraintTop_toBottomOf="@id/img_logo"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

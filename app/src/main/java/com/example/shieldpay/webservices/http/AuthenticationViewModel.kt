@@ -64,4 +64,50 @@ class AuthenticationViewModel : BaseViewModel() {
         }
     }
 
+    fun retrofitRegisterVM(email: String, password: String) {
+        setLoading(true)
+        GenericFunctions.retrofitRegister(
+            AuthenticationUserRequest(email, password),
+            object : Callbacks<RegisterUserResponse, Error> {
+                override fun onSuccess(success: RegisterUserResponse) {
+                    _registerResult.value = success
+                    setLoading(false)
+                }
+
+                override fun onFailure(failure: Error) {
+                    setFailureResult(failure.error)
+                    setLoading(false)
+                }
+
+                override fun onFailure(failure: String) {
+                    setFailureResult(failure)
+                    setLoading(false)
+                }
+            }
+        )
+    }
+
+    fun retrofitLoginVM(email: String, password: String) {
+        setLoading(true)
+        GenericFunctions.retrofitLogin(
+            AuthenticationUserRequest(email, password),
+            object : Callbacks<LoginUserResponse, Error> {
+                override fun onSuccess(success: LoginUserResponse) {
+                    _loginResult.value = success
+                    setLoading(false)
+                }
+
+                override fun onFailure(failure: Error) {
+                    setFailureResult(failure.error)
+                    setLoading(false)
+                }
+
+                override fun onFailure(failure: String) {
+                    setFailureResult(failure)
+                    setLoading(false)
+                }
+            }
+        )
+    }
+
 }
