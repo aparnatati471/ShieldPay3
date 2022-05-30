@@ -19,7 +19,7 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.ShieldPay.Splash" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.ShieldPay.Signup" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/dot_selected</item>
         <item name="colorPrimaryVariant">@color/dot_selected</item>
@@ -27,6 +27,17 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <item name="android:windowLightStatusBar" tools:targetApi="23">true</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.ShieldPay.Splash" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="android:windowBackground">@drawable/splash_background</item>
+        <item name="colorPrimary">@color/dot_selected</item>
+        <item name="colorPrimaryVariant">@color/dot_selected</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
 

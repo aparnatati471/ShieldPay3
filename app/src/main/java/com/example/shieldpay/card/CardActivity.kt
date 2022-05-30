@@ -1,33 +1,33 @@
 package com.example.shieldpay.card
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.shieldpay.Data
 import com.example.shieldpay.R
+import com.example.shieldpay.basesetup.BaseActivity
 import com.example.shieldpay.databinding.ActivityCardBinding
 import com.example.shieldpay.home.BottomNavigationActivity
 import com.example.shieldpay.home.CardAdapter
 import com.example.shieldpay.onboarding.setStatusBarColorWhite
+import com.example.shieldpay.webservices.http.AuthenticationViewModel
 
-class CardActivity : AppCompatActivity() {
-
-    // Variables
-    private lateinit var binding: ActivityCardBinding
-
+class CardActivity : BaseActivity<ActivityCardBinding, AuthenticationViewModel>(
+    ActivityCardBinding::inflate,
+    AuthenticationViewModel::class.java
+) {
     // Overridden Method
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCardBinding.inflate(layoutInflater)
-        Data.setToolBar(this, binding.toolbarTitle, binding.toolbar, getString(R.string.your_cards))
-        window.apply {
-            setStatusBarColorWhite()
+        binding.let {
+            Data.setToolBar(this, it.toolbarTitle, it.toolbar, getString(R.string.your_cards))
         }
         binding.toolbar.setNavigationOnClickListener {
             startActivity(Intent(this, BottomNavigationActivity::class.java))
         }
+        window.apply {
+            setStatusBarColorWhite()
+        }
         setUpCards()
-        setContentView(binding.root)
     }
 
     // Class Method

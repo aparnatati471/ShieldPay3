@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import org.json.JSONObject
 
-class AuthenticationViewModel : BaseViewModel() {
+class AuthenticationViewModel() : BaseViewModel() {
 
     private val _registerResult = MutableLiveData<RegisterUserResponse>()
     val registerResult: LiveData<RegisterUserResponse>

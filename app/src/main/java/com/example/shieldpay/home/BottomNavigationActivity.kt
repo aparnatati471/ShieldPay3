@@ -20,6 +20,7 @@ class BottomNavigationActivity : AppCompatActivity() {
         binding.bottomNavBar.setOnItemSelectedListener {
             when(it.itemId) {
                 R.id.bottom_nav_home -> replaceFragment(HomeFragment())
+                R.id.bottom_nav_profile -> replaceFragment(ProfileFragment())
             }
             true
         }

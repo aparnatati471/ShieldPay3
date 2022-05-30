@@ -11,10 +11,10 @@ import android.text.style.ClickableSpan
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import com.example.shieldpay.R
+import com.example.shieldpay.basesetup.BaseActivity
 import com.example.shieldpay.databinding.ActivitySignupBinding
+import com.example.shieldpay.forgotpassword.PhoneActivity
 import com.example.shieldpay.onboarding.bold
 import com.example.shieldpay.onboarding.color
 import com.example.shieldpay.onboarding.dismissKeyboard
@@ -29,26 +29,23 @@ import com.example.shieldpay.signin.SigninActivity
 import com.example.shieldpay.webservices.http.APISelectionType
 import com.example.shieldpay.webservices.http.AuthenticationViewModel
 
-class SignupActivity : AppCompatActivity(), View.OnClickListener {
+class SignupActivity : BaseActivity<ActivitySignupBinding, AuthenticationViewModel>(
+    ActivitySignupBinding::inflate,
+    AuthenticationViewModel::class.java
+), View.OnClickListener {
 
     // Variables
-    private lateinit var binding: ActivitySignupBinding
-    private lateinit var vm: AuthenticationViewModel
     private var check = true
 
     // Overridden Method
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySignupBinding.inflate(layoutInflater)
-        vm = ViewModelProvider(this)[AuthenticationViewModel::class.java]
         binding.click = this
-        setContentView(binding.root)
-        binding.click = this
+        setUpCheckBoxTextStyle()
+        setUpTextViewStyle()
         window.apply {
             setStatusBarColorWhite()
         }
-        setUpCheckBoxTextStyle()
-        setUpTextViewStyle()
         binding.baselayout.apply {
             dismissKeyboard(this)
         }
@@ -137,6 +134,7 @@ class SignupActivity : AppCompatActivity(), View.OnClickListener {
                     }
                 }
             }
+            binding.btnPhone.id -> startActivity(Intent(this, PhoneActivity::class.java))
         }
     }
 

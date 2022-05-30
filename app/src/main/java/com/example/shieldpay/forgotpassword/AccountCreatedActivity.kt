@@ -1,33 +1,28 @@
 package com.example.shieldpay.forgotpassword
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.TextUtils
 import android.view.View
 import com.example.shieldpay.R
+import com.example.shieldpay.basesetup.BaseActivity
 import com.example.shieldpay.databinding.ActivityAccountCreatedBinding
 import com.example.shieldpay.onboarding.color
 import com.example.shieldpay.onboarding.getStringFromRes
-import com.example.shieldpay.onboarding.setStatusBarColorWhite
 import com.example.shieldpay.onboarding.underline
 import com.example.shieldpay.signin.SigninActivity
+import com.example.shieldpay.webservices.http.AuthenticationViewModel
 
-class AccountCreatedActivity : AppCompatActivity(), View.OnClickListener {
-
-    // Variables
-    private lateinit var binding: ActivityAccountCreatedBinding
+class AccountCreatedActivity : BaseActivity<ActivityAccountCreatedBinding, AuthenticationViewModel>(
+    ActivityAccountCreatedBinding::inflate,
+    AuthenticationViewModel::class.java
+), View.OnClickListener {
 
     // Overridden Method
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityAccountCreatedBinding.inflate(layoutInflater)
-        setContentView(binding.root)
         binding.click = this
-        window.apply {
-            setStatusBarColorWhite()
-        }
         setUpStyle()
     }
 

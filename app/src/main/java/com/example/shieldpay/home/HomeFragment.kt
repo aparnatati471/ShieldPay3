@@ -3,32 +3,28 @@ package com.example.shieldpay.home
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.example.shieldpay.Data
+import com.example.shieldpay.basesetup.BaseFragment
 import com.example.shieldpay.card.CardActivity
 import com.example.shieldpay.databinding.FragmentHomeBinding
 import com.example.shieldpay.notification.NotificationActivity
+import com.example.shieldpay.webservices.http.AuthenticationViewModel
 
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragment<FragmentHomeBinding, AuthenticationViewModel>(
+    FragmentHomeBinding::inflate,
+    AuthenticationViewModel::class.java
+) {
 
-    private lateinit var binding: FragmentHomeBinding
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentHomeBinding.inflate(layoutInflater)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         setUpCardDetails()
-        binding.imgNotification.setOnClickListener {
-            startActivity(Intent(context, NotificationActivity::class.java))
-        }
         binding.tvViewAll.setOnClickListener {
             startActivity(Intent(context, CardActivity::class.java))
         }
-        return binding.root
+        binding.imgNotification.setOnClickListener {
+            startActivity(Intent(context, NotificationActivity::class.java))
+        }
     }
 
     private fun setUpCardDetails() {

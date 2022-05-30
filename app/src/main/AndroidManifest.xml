@@ -50,18 +50,16 @@
             android:exported="false" />
         <activity
             android:name=".signin.SigninActivity"
-            android:exported="false"
-            android:theme="@style/Theme.ShieldPay.Transparent" />
+            android:exported="false" />
         <activity
             android:name=".signup.SignupActivity"
             android:exported="true"
-            android:theme="@style/Theme.ShieldPay.Splash">
-
+            android:theme="@style/Theme.ShieldPay.Signup">
         </activity>
         <activity
             android:name=".splash.SplashActivity"
             android:exported="true"
-            android:theme="@style/Theme.ShieldPay">
+            android:theme="@style/Theme.ShieldPay.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -8,11 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.shieldpay.Data
-import com.example.shieldpay.MainActivity
 import com.example.shieldpay.R
+import com.example.shieldpay.basesetup.BaseSharedPreferenceManager
 import com.example.shieldpay.databinding.ActivityOnboardingBinding
-import com.example.shieldpay.signin.SigninActivity
-import com.example.shieldpay.signup.SignupActivity
 import com.example.shieldpay.webservices.RetrofitOrHttpActivity
 
 class OnBoardingActivity : AppCompatActivity(), View.OnClickListener {
@@ -63,6 +61,7 @@ class OnBoardingActivity : AppCompatActivity(), View.OnClickListener {
                         binding.tvSkip.visibility = View.GONE
                         binding.btnSkip.visibility = View.VISIBLE
                         binding.btnSkip.setBackgroundResource(R.drawable.btn_skip_background)
+                        BaseSharedPreferenceManager.getInstance(this@OnBoardingActivity).saveOnboardStatus(true)
                     }
                 }
             }

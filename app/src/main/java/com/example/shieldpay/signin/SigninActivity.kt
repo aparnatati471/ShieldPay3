@@ -10,11 +10,10 @@ import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.util.Log
 import android.view.View
-import android.view.WindowManager
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import com.example.shieldpay.R
+import com.example.shieldpay.basesetup.BaseActivity
+import com.example.shieldpay.basesetup.BaseSharedPreferenceManager
 import com.example.shieldpay.databinding.ActivitySigninBinding
 import com.example.shieldpay.home.BottomNavigationActivity
 import com.example.shieldpay.onboarding.bold
@@ -23,34 +22,23 @@ import com.example.shieldpay.onboarding.dismissKeyboard
 import com.example.shieldpay.onboarding.getStringFromRes
 import com.example.shieldpay.onboarding.isValidEmail
 import com.example.shieldpay.onboarding.isValidPassword
-import com.example.shieldpay.onboarding.setStatusBarColorBlue
 import com.example.shieldpay.onboarding.validate
 import com.example.shieldpay.signup.SignupActivity
 import com.example.shieldpay.webservices.http.APISelectionType
 import com.example.shieldpay.webservices.http.AuthenticationViewModel
 
-class SigninActivity : AppCompatActivity(), View.OnClickListener {
+class SigninActivity : BaseActivity<ActivitySigninBinding, AuthenticationViewModel>(
+    ActivitySigninBinding::inflate,
+    AuthenticationViewModel::class.java
+), View.OnClickListener {
 
     // Variables
-    private lateinit var binding: ActivitySigninBinding
-    private lateinit var vm: AuthenticationViewModel
     private var check = true
 
     // Overridden Method
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySigninBinding.inflate(layoutInflater)
-        vm = ViewModelProvider(this)[AuthenticationViewModel::class.java]
         binding.click = this
-        setContentView(binding.root)
-        binding.click = this
-        val window = window.apply {
-            setStatusBarColorBlue()
-        }
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-        )
         setUpTextViewStyle()
         binding.baselayout.apply {
             dismissKeyboard(this)
@@ -61,6 +49,7 @@ class SigninActivity : AppCompatActivity(), View.OnClickListener {
     private fun observables() {
         vm.loginResult.observe(this) {
             Toast.makeText(this, it.token, Toast.LENGTH_LONG).show()
+            BaseSharedPreferenceManager.getInstance(this).saveLoginStatus(it.token)
             startActivity(Intent(this, BottomNavigationActivity::class.java))
         }
         vm.failureResult.observe(this) {

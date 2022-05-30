@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.2015625" />
+        <entry key="app/src/main/res/drawable/bg_gradient.xml" value="0.1615" />
         <entry key="app/src/main/res/drawable/btn_next_background.xml" value="0.16" />
         <entry key="app/src/main/res/drawable/btn_skip.xml" value="0.16" />
         <entry key="app/src/main/res/drawable/btn_skip_background.xml" value="0.16" />
@@ -17,6 +18,7 @@
         <entry key="app/src/main/res/drawable/edittext_unselected.xml" value="0.16" />
         <entry key="app/src/main/res/drawable/selected_dot.xml" value="0.132" />
         <entry key="app/src/main/res/drawable/skip_background.xml" value="0.132" />
+        <entry key="app/src/main/res/drawable/splash_background.xml" value="0.1615" />
         <entry key="app/src/main/res/drawable/tab_selector.xml" value="0.132" />
         <entry key="app/src/main/res/drawable/unselected_dot.xml" value="0.17" />
         <entry key="app/src/main/res/font/acme.xml" value="0.18958333333333333" />
@@ -30,13 +32,16 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.175" />
         <entry key="app/src/main/res/layout/activity_onboarding.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_phone.xml" value="0.1286231884057971" />
+        <entry key="app/src/main/res/layout/activity_retrofit_or_http.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_signin.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_signup.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_verify_account.xml" value="0.1286231884057971" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.159375" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.159375" />
         <entry key="app/src/main/res/layout/number_pad.xml" value="0.25" />
         <entry key="app/src/main/res/layout/onboarding_screen.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/single_card.xml" value="0.1721014492753623" />
         <entry key="app/src/main/res/layout/spinner_item.xml" value="0.1286231884057971" />
       </map>
     </option>

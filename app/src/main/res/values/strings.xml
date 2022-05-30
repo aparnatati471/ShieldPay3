@@ -111,5 +111,7 @@
     <string name="http_url_connection">HTTP URL Connection</string>
     <string name="retrofit">Retrofit</string>
     <string name="http">HTTP</string>
-
+    <string name="blueStyle">Blue</string>
+    <string name="whiteStyle">White</string>
+    <string name="log_out">Log Out</string>
 </resources>
