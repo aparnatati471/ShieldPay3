@@ -25,6 +25,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, AuthenticationViewModel>(
         binding.imgNotification.setOnClickListener {
             startActivity(Intent(context, NotificationActivity::class.java))
         }
+        binding.tvViewSavings.setOnClickListener {
+            startActivity(Intent(context, com.example.shieldpay.notifications.NotificationActivity::class.java))
+        }
     }
 
     private fun setUpCardDetails() {

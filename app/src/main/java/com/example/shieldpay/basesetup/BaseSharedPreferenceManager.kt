@@ -2,8 +2,6 @@ package com.example.shieldpay.basesetup
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.example.shieldpay.webservices.http.LoginUserResponse
-import com.google.gson.Gson
 
 /** Constant Variables **/
 const val isOnboard = "onboard"

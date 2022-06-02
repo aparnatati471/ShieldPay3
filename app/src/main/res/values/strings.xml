@@ -114,4 +114,18 @@
     <string name="blueStyle">Blue</string>
     <string name="whiteStyle">White</string>
     <string name="log_out">Log Out</string>
+
+    <!-- Notification Strings-->
+    <string name="simple_notification">Simple Notification</string>
+    <string name="channel_name">Simple Notification</string>
+    <string name="channel_description">This is a simple Notifcation</string>
+    <string name="direct_reply_notification">Direct Reply Notification</string>
+    <string name="show">Show</string>
+    <string name="group_notification">Group Notification</string>
+    <string name="messages">Messages From Whatsapp</string>
+    <string name="notifications_title">Notifications</string>
+    <string name="push_notification">Push Notification</string>
+    <string name="subtitle">Subtitle</string>
+    <string name="title">title</string>
+    <string name="progressbar_notification">ProgressBar Notification</string>
 </resources>
