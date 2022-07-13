@@ -18,7 +18,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         AppCenter.start(
             application,
-            "3b5d202a-c321-476a-8405-915d4204fd86",
+            "84e56e78-84d5-4f19-8186-18227b9d9e6b",
             Analytics::class.java,
             Crashes::class.java
         )
